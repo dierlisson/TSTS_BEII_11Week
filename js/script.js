@@ -142,7 +142,7 @@ async function statusServidor(){
           <td>${cliente.id}</td>  
           <td>${cliente.nome}</td>  
           <td>${cliente.email}</td>
-          <td>${cliente.anoNascimento}</td>
+          <td>${cliente.ano}</td>
           <td>
             <button type="button" class="btn btn-secondary btn-sm" onclick="editar(${cliente.id})">
               <i class="bi bi-pencil-square"></i>
@@ -161,7 +161,7 @@ async function statusServidor(){
   const nomeIdentificador = document.getElementById("identificador");
   const nomeForm = document.getElementById("nome");
   const emailForm = document.getElementById("email");
-  const anoNascimentoForm = document.getElementById("anoNascimento");
+  const anoForm = document.getElementById("ano");
   
   function registrar(){
     const id = nomeIdentificador.value;
@@ -181,7 +181,7 @@ async function statusServidor(){
       id: 0, //O id será gerado pelo back-end
       nome: nomeForm.value,
       email: emailForm.value,
-      anoNascimento: anoNascimentoForm.value
+      ano: anoForm.value
     }
   
     const novoCliente = await salvar(cliente);
@@ -199,7 +199,7 @@ async function statusServidor(){
       id: nomeIdentificador.value,
       nome: nomeForm.value,
       email: emailForm.value,
-      anoNascimento: anoNascimentoForm.value
+      ano: anoForm.value
     }
   
     console.log(cliente);
@@ -221,7 +221,7 @@ async function statusServidor(){
     nomeIdentificador.value = cliente.id;
     nomeForm.value = cliente.nome;
     emailForm.value = cliente.email;
-    anoNascimentoForm.value = cliente.anoNascimento;
+    anoForm.value = cliente.ano;
   };
   
   async function deletar(id) {
